@@ -296,6 +296,14 @@ p {
   gap: var(--space-sm);
 }
 
+.todo-list-header {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0 0 var(--space-sm) 0;
+  padding: var(--space-sm) 0;
+}
+
 .empty-state {
   text-align: center;
   padding: var(--space-lg);
@@ -332,6 +340,24 @@ p {
   text-decoration: line-through;
   opacity: 0.6;
   color: var(--success-color);
+}
+
+/* Overdue todo styling */
+.todo-card.card--overdue {
+  border-left: 4px solid var(--danger-color);
+  border-color: var(--danger-color);
+}
+
+.todo-card.card--overdue .todo-title {
+  color: var(--danger-color);
+  font-weight: 700;
+}
+
+.todo-days-overdue {
+  margin: 4px 0 0 0;
+  font-size: 12px;
+  color: var(--danger-color);
+  font-weight: 600;
 }
 
 .todo-checkbox {

@@ -23,9 +23,9 @@ description: "Task list for implementing Overdue Todos feature"
 
 **Purpose**: Project and utility foundation for overdue feature
 
-- [ ] T001 Create utility function file `packages/frontend/src/utils/overdue.js` with `isOverdue()` and `daysOverdue()` functions
-- [ ] T002 [P] Create test file `packages/frontend/src/utils/__tests__/overdue.test.js` with test structure
-- [ ] T003 Update `packages/frontend/src/App.js` to ensure TodoList receives full todo list state for aggregate count computation
+- [x] T001 Create utility function file `packages/frontend/src/utils/overdue.js` with `isOverdue()` and `daysOverdue()` functions
+- [x] T002 [P] Create test file `packages/frontend/src/utils/__tests__/overdue.test.js` with test structure
+- [x] T003 Update `packages/frontend/src/App.js` to ensure TodoList receives full todo list state for aggregate count computation
 
 ---
 
@@ -35,11 +35,11 @@ description: "Task list for implementing Overdue Todos feature"
 
 **⚠️ CRITICAL**: No user story work can begin until overdue utility functions are tested and working
 
-- [ ] T004 [P] Implement `isOverdue(dueDate, nowDate)` function in `packages/frontend/src/utils/overdue.js` (returns boolean, handles null dueDate, compares YYYY-MM-DD)
-- [ ] T005 [P] Implement `daysOverdue(dueDate, nowDate)` function in `packages/frontend/src/utils/overdue.js` (returns integer >=1 days difference)
-- [ ] T006 [P] Implement test cases for `isOverdue()` covering: null dueDate, today's date, past dates, future dates in `packages/frontend/src/utils/__tests__/overdue.test.js`
-- [ ] T007 [P] Implement test cases for `daysOverdue()` covering: various past dates, off-by-one edge cases in `packages/frontend/src/utils/__tests__/overdue.test.js`
-- [ ] T008 Run and verify all foundational tests pass: `npm test --workspace=packages/frontend -- overdue.test.js`
+- [x] T004 [P] Implement `isOverdue(dueDate, nowDate)` function in `packages/frontend/src/utils/overdue.js` (returns boolean, handles null dueDate, compares YYYY-MM-DD)
+- [x] T005 [P] Implement `daysOverdue(dueDate, nowDate)` function in `packages/frontend/src/utils/overdue.js` (returns integer >=1 days difference)
+- [x] T006 [P] Implement test cases for `isOverdue()` covering: null dueDate, today's date, past dates, future dates in `packages/frontend/src/utils/__tests__/overdue.test.js`
+- [x] T007 [P] Implement test cases for `daysOverdue()` covering: various past dates, off-by-one edge cases in `packages/frontend/src/utils/__tests__/overdue.test.js`
+- [x] T008 Run and verify all foundational tests pass: `npm test --workspace=packages/frontend -- overdue.test.js`
 
 **Checkpoint**: Overdue utility functions working and tested - user story implementation can now begin in parallel
 
@@ -53,19 +53,19 @@ description: "Task list for implementing Overdue Todos feature"
 
 ### Tests for User Story 1
 
-- [ ] T009 [P] [US1] Create component test file `packages/frontend/src/components/__tests__/TodoCard.test.js` for overdue rendering scenarios
-- [ ] T010 [P] [US1] Add test case: TodoCard with overdue incomplete todo should render danger color styling in `packages/frontend/src/components/__tests__/TodoCard.test.js`
-- [ ] T011 [P] [US1] Add test case: TodoCard with on-time incomplete todo should NOT render danger color styling in `packages/frontend/src/components/__tests__/TodoCard.test.js`
-- [ ] T012 [P] [US1] Add test case: TodoCard with completed todo (even if overdue) should display completion indicator without danger color in `packages/frontend/src/components/__tests__/TodoCard.test.js`
-- [ ] T013 [US1] Run and verify all US1 component tests pass: `npm test --workspace=packages/frontend -- TodoCard.test.js`
+- [x] T009 [P] [US1] Create component test file `packages/frontend/src/components/__tests__/TodoCard.test.js` for overdue rendering scenarios
+- [x] T010 [P] [US1] Add test case: TodoCard with overdue incomplete todo should render danger color styling in `packages/frontend/src/components/__tests__/TodoCard.test.js`
+- [x] T011 [P] [US1] Add test case: TodoCard with on-time incomplete todo should NOT render danger color styling in `packages/frontend/src/components/__tests__/TodoCard.test.js`
+- [x] T012 [P] [US1] Add test case: TodoCard with completed todo (even if overdue) should display completion indicator without danger color in `packages/frontend/src/components/__tests__/TodoCard.test.js`
+- [x] T013 [US1] Run and verify all US1 component tests pass: `npm test --workspace=packages/frontend -- TodoCard.test.js`
 
 ### Implementation for User Story 1
 
-- [ ] T014 [P] [US1] Update `packages/frontend/src/components/TodoCard.js` to import overdue utilities from `packages/frontend/src/utils/overdue.js`
-- [ ] T015 [P] [US1] Add `isOverdue` computed property in TodoCard component (call `isOverdue(todo.dueDate, today)` for incomplete todos)
-- [ ] T016 [US1] Add danger color CSS class to TodoCard when `isOverdue && !todo.completed` in `packages/frontend/src/components/TodoCard.js` (e.g., class `card--overdue` with danger border or background from theme)
-- [ ] T017 [US1] Verify TodoCard danger styling uses existing design system danger color from `packages/frontend/src/styles/theme.css`
-- [ ] T018 [US1] Add accessibility text indicator (via `aria-label` or visually hidden text) conveying "Overdue" status when item is overdue in `packages/frontend/src/components/TodoCard.js`
+- [x] T014 [P] [US1] Update `packages/frontend/src/components/TodoCard.js` to import overdue utilities from `packages/frontend/src/utils/overdue.js`
+- [x] T015 [P] [US1] Add `isOverdue` computed property in TodoCard component (call `isOverdue(todo.dueDate, today)` for incomplete todos)
+- [x] T016 [US1] Add danger color CSS class to TodoCard when `isOverdue && !todo.completed` in `packages/frontend/src/components/TodoCard.js` (e.g., class `card--overdue` with danger border or background from theme)
+- [x] T017 [US1] Verify TodoCard danger styling uses existing design system danger color from `packages/frontend/src/styles/theme.css`
+- [x] T018 [US1] Add accessibility text indicator (via `aria-label` or visually hidden text) conveying "Overdue" status when item is overdue in `packages/frontend/src/components/TodoCard.js`
 
 **Checkpoint**: User Story 1 complete - overdue todos now display distinct visual indicator. Can be tested independently.
 
@@ -79,17 +79,17 @@ description: "Task list for implementing Overdue Todos feature"
 
 ### Tests for User Story 2
 
-- [ ] T019 [P] [US2] Add test case: TodoCard with 5-days-overdue todo should display "5 days overdue" text in `packages/frontend/src/components/__tests__/TodoCard.test.js`
-- [ ] T020 [P] [US2] Add test case: TodoCard with 1-day-overdue todo should display "1 day overdue" text (singular) in `packages/frontend/src/components/__tests__/TodoCard.test.js`
-- [ ] T021 [P] [US2] Add test case: TodoCard with on-time or future todo should NOT display overdue duration text in `packages/frontend/src/components/__tests__/TodoCard.test.js`
-- [ ] T022 [US2] Run and verify all US2 component tests pass: `npm test --workspace=packages/frontend -- TodoCard.test.js`
+- [x] T019 [P] [US2] Add test case: TodoCard with 5-days-overdue todo should display "5 days overdue" text in `packages/frontend/src/components/__tests__/TodoCard.test.js`
+- [x] T020 [P] [US2] Add test case: TodoCard with 1-day-overdue todo should display "1 day overdue" text (singular) in `packages/frontend/src/components/__tests__/TodoCard.test.js`
+- [x] T021 [P] [US2] Add test case: TodoCard with on-time or future todo should NOT display overdue duration text in `packages/frontend/src/components/__tests__/TodoCard.test.js`
+- [x] T022 [US2] Run and verify all US2 component tests pass: `npm test --workspace=packages/frontend -- TodoCard.test.js`
 
 ### Implementation for User Story 2
 
-- [ ] T023 [P] [US2] Add `daysOverdue` computed property in TodoCard component (call `daysOverdue(todo.dueDate, today)` for overdue incomplete todos)
-- [ ] T024 [P] [US2] Add text display in TodoCard showing "X day(s) overdue" in secondary/caption typography below or near the due date in `packages/frontend/src/components/TodoCard.js` (e.g., in TodoCard subtitle area)
-- [ ] T025 [US2] Verify days overdue text uses correct singular/plural form ("1 day overdue" vs "2 days overdue") in `packages/frontend/src/components/TodoCard.js`
-- [ ] T026 [US2] Ensure days overdue text is only shown for incomplete overdue todos; not for completed todos even if they are overdue in `packages/frontend/src/components/TodoCard.js`
+- [x] T023 [P] [US2] Add `daysOverdue` computed property in TodoCard component (call `daysOverdue(todo.dueDate, today)` for overdue incomplete todos)
+- [x] T024 [P] [US2] Add text display in TodoCard showing "X day(s) overdue" in secondary/caption typography below or near the due date in `packages/frontend/src/components/TodoCard.js` (e.g., in TodoCard subtitle area)
+- [x] T025 [US2] Verify days overdue text uses correct singular/plural form ("1 day overdue" vs "2 days overdue") in `packages/frontend/src/components/TodoCard.js`
+- [x] T026 [US2] Ensure days overdue text is only shown for incomplete overdue todos; not for completed todos even if they are overdue in `packages/frontend/src/components/TodoCard.js`
 
 **Checkpoint**: User Story 2 complete - overdue todos now display days overdue context. US1 and US2 work together; both independently testable.
 
@@ -103,18 +103,18 @@ description: "Task list for implementing Overdue Todos feature"
 
 ### Tests for User Story 3
 
-- [ ] T027 [P] [US3] Create test file `packages/frontend/src/components/__tests__/TodoList.test.js` for header overdue count scenarios
-- [ ] T028 [P] [US3] Add test case: TodoList with 3 overdue items should display "My Todos (3 overdue)" in header in `packages/frontend/src/components/__tests__/TodoList.test.js`
-- [ ] T029 [P] [US3] Add test case: TodoList with 0 overdue items should display just "My Todos" without count in header in `packages/frontend/src/components/__tests__/TodoList.test.js`
-- [ ] T030 [P] [US3] Add test case: TodoList with 1 overdue item should display "My Todos (1 overdue)" with singular text in header in `packages/frontend/src/components/__tests__/TodoList.test.js`
-- [ ] T031 [US3] Run and verify all US3 component tests pass: `npm test --workspace=packages/frontend -- TodoList.test.js`
+- [x] T027 [P] [US3] Create test file `packages/frontend/src/components/__tests__/TodoList.test.js` for header overdue count scenarios
+- [x] T028 [P] [US3] Add test case: TodoList with 3 overdue items should display "My Todos (3 overdue)" in header in `packages/frontend/src/components/__tests__/TodoList.test.js`
+- [x] T029 [P] [US3] Add test case: TodoList with 0 overdue items should display just "My Todos" without count in header in `packages/frontend/src/components/__tests__/TodoList.test.js`
+- [x] T030 [P] [US3] Add test case: TodoList with 1 overdue item should display "My Todos (1 overdue)" with singular text in header in `packages/frontend/src/components/__tests__/TodoList.test.js`
+- [x] T031 [US3] Run and verify all US3 component tests pass: `npm test --workspace=packages/frontend -- TodoList.test.js`
 
 ### Implementation for User Story 3
 
-- [ ] T032 [P] [US3] Add `overdueTodosCount` computed property in TodoList component that counts incomplete todos with `isOverdue(todo.dueDate, today) === true` in `packages/frontend/src/components/TodoList.js`
-- [ ] T033 [P] [US3] Update TodoList header title to conditionally render "My Todos (N overdue)" when overdueTodosCount > 0, or just "My Todos" when count is 0, in `packages/frontend/src/components/TodoList.js`
-- [ ] T034 [US3] Ensure aggregate count updates reactively when todos are added/removed/completed in `packages/frontend/src/components/TodoList.js`
-- [ ] T035 [US3] Verify singular/plural form in aggregate count display ("1 overdue" vs "2 overdue") in `packages/frontend/src/components/TodoList.js`
+- [x] T032 [P] [US3] Add `overdueTodosCount` computed property in TodoList component that counts incomplete todos with `isOverdue(todo.dueDate, today) === true` in `packages/frontend/src/components/TodoList.js`
+- [x] T033 [P] [US3] Update TodoList header title to conditionally render "My Todos (N overdue)" when overdueTodosCount > 0, or just "My Todos" when count is 0, in `packages/frontend/src/components/TodoList.js`
+- [x] T034 [US3] Ensure aggregate count updates reactively when todos are added/removed/completed in `packages/frontend/src/components/TodoList.js`
+- [x] T035 [US3] Verify singular/plural form in aggregate count display ("1 overdue" vs "2 overdue") in `packages/frontend/src/components/TodoList.js`
 
 **Checkpoint**: User Story 3 complete - aggregate overdue count displayed in header. All three user stories are now independently testable and working.
 
@@ -124,10 +124,10 @@ description: "Task list for implementing Overdue Todos feature"
 
 **Purpose**: Testing, documentation, and quality improvements across all user stories
 
-- [ ] T036 [P] Add integration test for complete user flow: create overdue todo, verify it displays with danger indicator and days overdue, verify count updates in `packages/frontend/src/__tests__/App.test.js`
-- [ ] T037 [P] Verify all existing tests pass: `npm test --workspace=packages/frontend`
-- [ ] T038 [P] Verify all existing tests pass: `npm test --workspace=packages/backend` (backend unchanged)
-- [ ] T039 Verify feature meets accessibility guidelines: ensure color contrast meets WCAG AA, ensure aria-labels convey overdue state, ensure text alternatives to color in `packages/frontend/src/components/TodoCard.js` and `packages/frontend/src/components/TodoList.js`
+- [x] T036 [P] Add integration test for complete user flow: create overdue todo, verify it displays with danger indicator and days overdue, verify count updates in `packages/frontend/src/__tests__/App.test.js`
+- [x] T037 [P] Verify all existing tests pass: `npm test --workspace=packages/frontend`
+- [x] T038 [P] Verify all existing tests pass: `npm test --workspace=packages/backend` (backend unchanged)
+- [x] T039 Verify feature meets accessibility guidelines: ensure color contrast meets WCAG AA, ensure aria-labels convey overdue state, ensure text alternatives to color in `packages/frontend/src/components/TodoCard.js` and `packages/frontend/src/components/TodoList.js`
 - [ ] T040 Update component documentation/comments in `packages/frontend/src/components/TodoCard.js` and `packages/frontend/src/components/TodoList.js` explaining overdue logic
 - [ ] T041 Update `packages/frontend/src/utils/overdue.js` with JSDoc comments for `isOverdue()` and `daysOverdue()` functions
 - [ ] T042 Verify no console.log statements in production code

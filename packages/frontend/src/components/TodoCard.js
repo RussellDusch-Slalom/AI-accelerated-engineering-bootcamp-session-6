@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { isOverdue, daysOverdue, formatDaysOverdue } from '../utils/overdue';
 
 function TodoCard({ todo, onToggle, onEdit, onDelete, isLoading }) {
   const [isEditing, setIsEditing] = useState(false);
@@ -62,6 +63,11 @@ function TodoCard({ todo, onToggle, onEdit, onDelete, isLoading }) {
     });
   };
 
+  // Calculate overdue status (only for incomplete todos)
+  const isOverdueStatus = !todo.completed && isOverdue(todo.dueDate);
+  const daysOverdueCount = !todo.completed ? daysOverdue(todo.dueDate) : null;
+  const daysOverdueText = formatDaysOverdue(daysOverdueCount);
+
   if (isEditing) {
     return (
       <div className="todo-card todo-card-edit">
@@ -107,7 +113,11 @@ function TodoCard({ todo, onToggle, onEdit, onDelete, isLoading }) {
   }
 
   return (
-    <div className={`todo-card ${todo.completed ? 'completed' : ''}`}>
+    <div
+      className={`todo-card ${todo.completed ? 'completed' : ''} ${isOverdueStatus ? 'card--overdue' : ''}`}
+      aria-label={isOverdueStatus ? `${todo.title} - Overdue` : todo.title}
+      role="article"
+    >
       <input
         type="checkbox"
         checked={todo.completed === 1}
@@ -120,9 +130,16 @@ function TodoCard({ todo, onToggle, onEdit, onDelete, isLoading }) {
       <div className="todo-content">
         <h3 className="todo-title">{todo.title}</h3>
         {todo.dueDate && (
-          <p className="todo-due-date">
-            Due: {formatDate(todo.dueDate)}
-          </p>
+          <div className="todo-date-section">
+            <p className="todo-due-date">
+              Due: {formatDate(todo.dueDate)}
+            </p>
+            {daysOverdueText && (
+              <p className="todo-days-overdue" aria-label={`${daysOverdueText}`}>
+                {daysOverdueText}
+              </p>
+            )}
+          </div>
         )}
       </div>
 
